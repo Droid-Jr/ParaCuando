@@ -6,7 +6,7 @@ function NavBar() {
        <h2>PC?</h2>
        <div className='flex gap-6'>
         <Link to="/register">REGISTER</Link>
-        <Link to="/">Home</Link>
+        <Link to="/">Homes</Link>
        </div>
     </nav>
   )
