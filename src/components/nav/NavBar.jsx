@@ -12,4 +12,4 @@ function NavBar() {
   )
 }
 
-export default NavBarg
+export default NavBar
