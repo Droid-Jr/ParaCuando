@@ -4,17 +4,18 @@ import NavBar from "./components/nav/NavBar"
 import Register from './pages/Register'
 import Login from './pages/Login'
 
+
 function App() {
  
 
   return (
     <>
       <HashRouter>
-        {/* <NavBar/> */}
+        <NavBar/>
         <Routes>
 
           <Route element={<Home/>} path="/"/>
-          <Route element={<Register/>} path="/register"/>
+          <Route element={<Register />} path="/register"/>
           <Route element={<Login/>} path="/login"/>
           
 
