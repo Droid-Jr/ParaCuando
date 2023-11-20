@@ -1,10 +1,23 @@
 import { Fields } from "./Login";
-function Register() {
+import { useForm } from "react-hook-form";
+import axios from "axios";
+function Register({ setUser }) {
+  const { register, handleSubmit } = useForm();
+  const registerNew = (data) => {
+    axios
+      .post("http://localhost:9000/register", data)
+      .then((res) => {
+        // setUser(res.data);
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
-    <div className="h-full text-white font-semibold px-4 flex flex-col items-center gap-8 py-8 lg:flex-row sm:gap-12 sm:px-12 sm:py-12 sm:justify-center lg:px-24">
+    <div className="h-full text-white font-semibold px-4 flex flex-col items-center gap-8 py-8 lg:flex-row sm:gap-12 sm:px-12 sm:py-12 sm:justify-center lg:px-24 md:py-0">
       <Fields />
       <form
-        action="/"
+        onSubmit={handleSubmit(registerNew)}
         className="relative h-full border w-full rounded-xl flex flex-col justify-center gap-2 px-12 bg-opacity-70 bg-black lg:flex-1 sm:h-4/5 lg:gap-4 md:gap-4"
       >
         <img
@@ -19,28 +32,35 @@ function Register() {
         </label>
         <input
           type="email"
-          name="email"
+         
+          {...register("email")}
           id="email"
           placeholder="john.doe@gmail.com"
           className="p-3 rounded-md bg-transparent border-2"
         />
         <span className="flex gap-2">
-          <span>
-            <label htmlFor="nombre" className="font-bold">Nombre</label>
+          <span className="w-full">
+            <label htmlFor="username" className="font-bold">
+              Nombre
+            </label>
             <input
               type="text"
-              name="nombre"
-              id="nombre"
+              {...register("username")}
+              
+              id="username"
               placeholder="John Doe"
               className="p-3 rounded-md bg-transparent border-2 w-full"
             />
           </span>
-          <span>
-            <label htmlFor="apellido" className="font-bold">Apellido</label>
+          <span className="w-full">
+            <label htmlFor="lastname" className="font-bold">
+              Apellido
+            </label>
             <input
               type="text"
-              name="apellido"
-              id="apellido"
+          
+              {...register("lastname")}
+              id="lastname"
               placeholder="John Doe"
               className="p-3 rounded-md bg-transparent border-2 w-full"
             />
@@ -51,7 +71,7 @@ function Register() {
         </label>
         <input
           type="password"
-          name="password"
+          {...register("password")}
           id="password"
           placeholder="********"
           className="p-3 rounded-md bg-transparent border-2"
@@ -59,11 +79,9 @@ function Register() {
         <li className="text-xs">
           Las Contraseñas deben tener mayusculas, minusculas y numeros
         </li>
-        <input
-          type="submit"
-          value="Crear Cuenta"
-          className="p-3 bg-[#F3F243] rounded-md text-black font-bold my-4"
-        />
+        <button className="p-3 bg-[#F3F243] rounded-md text-black font-bold my-4">
+          Crear Cuenta
+        </button>
         <a href="" className="text-center text-[#F3F243] underline">
           O inicia sesion
         </a>
