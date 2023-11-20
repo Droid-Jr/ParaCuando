@@ -1,4 +1,12 @@
+import { Toaster, toast } from "sonner";
+import { useForm } from "react-hook-form"
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from "../store/slices/user.slice";
+import axios from "axios";
 export function Fields() {
+
+
   return (
     <>
       <div className="absolute bg-paraCuando top-0 right-0 bottom-0 left-0 bg-gradient-to-r from-black to-black"></div>
@@ -12,11 +20,29 @@ export function Fields() {
 }
 
 function Login() {
+  const navigate = useNavigate()
+  const {register , handleSubmit} = useForm()
+  const dispatch = useDispatch();
+  const login = (data) => {
+    axios.post(`http://localhost:4000/login`, data)
+      .then(res => { 
+        dispatch(setUser(res.data))
+        console.log(res.data)
+        localStorage.setItem("token", res.data.token);
+        toast.success("terminos aceptados");
+        setTimeout(() => {
+          navigate("/");
+        }, 1200);
+      })
+      .catch(err => {
+        console.error("Error:", err);
+      });
+  };
   return (
     <div className="h-full text-white font-semibold px-4 flex flex-col items-center gap-8 py-8 lg:flex-row sm:gap-12 sm:px-12 sm:py-12 sm:justify-center lg:px-24">
       <Fields />
       <form
-        action="/"
+        onSubmit={handleSubmit(login)}
         className="relative h-full border w-full rounded-xl flex flex-col justify-center gap-2 px-12 bg-opacity-70 bg-black lg:flex-1 sm:h-4/5 lg:gap-4"
       >
         <img
@@ -35,6 +61,7 @@ function Login() {
           type="email"
           name="email"
           id="email"
+          {...register("email")}
           placeholder="john.doe@gmail.com"
           className="p-3 rounded-md bg-transparent border-2"
         />
@@ -45,6 +72,7 @@ function Login() {
           type="password"
           name="password"
           id="password"
+          {...register("password")}
           placeholder="********"
           className="p-3 rounded-md bg-transparent border-2"
         />
@@ -54,14 +82,15 @@ function Login() {
             Recuperala aquí
           </a>
         </li>
-        <input
-          type="submit"
-          value="Iniciar sesion"
-          className="p-3 bg-[#F3F243] rounded-md text-black font-bold my-4"
-        />
+        <button
+        type="submit"
+        
+        className="p-3 bg-[#F3F243] rounded-md text-black font-bold my-4"
+        >Iniciar sesion</button>
         <a href="" className="text-center text-[#F3F243] underline">
           O crea una cuenta Aqui
         </a>
+        
       </form>
     </div>
   );
