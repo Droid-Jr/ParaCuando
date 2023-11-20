@@ -29,7 +29,7 @@ function Register() {
       <Fields />
       <form
          onSubmit={handleSubmit(registers)}
-        className="relative h-full border w-full rounded-xl flex flex-col justify-center gap-2 px-12 bg-opacity-70 bg-black lg:flex-1 sm:h-4/5 lg:gap-4 md:gap-4"
+        className="relative h-full border w-full rounded-xl flex flex-col justify-center gap-2 px-12 bg-opacity-70 bg-black lg:flex-1 sm:h-4/5 lg:gap-2 md:gap-4 2xl:gap-4"
       >
         <img
           src="../../public/imgs/login/Group 296.svg"
@@ -50,7 +50,7 @@ function Register() {
           className="p-3 rounded-md bg-transparent border-2"
         />
         <span className="flex gap-2">
-          <span>
+          <span className="w-full">
             <label htmlFor="username" className="font-bold">Nombre</label>
             <input
               type="text"
@@ -61,7 +61,7 @@ function Register() {
               className="p-3 rounded-md bg-transparent border-2 w-full"
             />
           </span>
-          <span>
+          <span className="w-full">
             <label htmlFor="lastname" className="font-bold">Apellido</label>
             <input
               type="text"
