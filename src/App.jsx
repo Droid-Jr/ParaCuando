@@ -5,6 +5,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import { useState } from "react"
 
+
 function App() {
   const [user, setUser] = useState(null);
   
@@ -12,7 +13,7 @@ function App() {
   return (
     <>
       <HashRouter>
-        {/* <NavBar/> */}
+        <NavBar/>
         <Routes>
 
           <Route element={<Home/>} path="/"/>
