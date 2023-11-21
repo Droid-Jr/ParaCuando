@@ -2,33 +2,32 @@
 import axios from "axios";
 import { Fields } from "../pages/Login";
 import { Toaster, toast } from "sonner";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
-  const navigate = useNavigate()
-  const {register , handleSubmit} = useForm()
+  const navigate = useNavigate();
+  const { register, handleSubmit } = useForm();
   const registers = (data) => {
-    axios.post(`http://localhost:4000/register`, data)
-      .then(res => {
+    axios
+      .post(`http://localhost:4000/register`, data)
+      .then((res) => {
         console.log(res.data);
         toast.success("Registro Exitoso");
-       setTimeout(() => {
-        navigate("/login");
-       }, 1200);
+        setTimeout(() => {
+          navigate("/login");
+        }, 1200);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Error:", err);
       });
   };
-  
-  
 
   return (
     <div className="h-full text-white font-semibold px-4 flex flex-col items-center gap-8 py-8 lg:flex-row sm:gap-12 sm:px-12 sm:py-12 sm:justify-center lg:px-24">
       <Fields />
       <form
-         onSubmit={handleSubmit(registers)}
+        onSubmit={handleSubmit(registers)}
         className="relative h-full border w-full rounded-xl flex flex-col justify-center gap-2 px-12 bg-opacity-70 bg-black lg:flex-1 sm:h-4/5 lg:gap-2 md:gap-4 2xl:gap-4"
       >
         <img
@@ -51,7 +50,9 @@ function Register() {
         />
         <span className="flex gap-2">
           <span className="w-full">
-            <label htmlFor="username" className="font-bold">Nombre</label>
+            <label htmlFor="username" className="font-bold">
+              Nombre
+            </label>
             <input
               type="text"
               name="username"
@@ -62,7 +63,9 @@ function Register() {
             />
           </span>
           <span className="w-full">
-            <label htmlFor="lastname" className="font-bold">Apellido</label>
+            <label htmlFor="lastname" className="font-bold">
+              Apellido
+            </label>
             <input
               type="text"
               name="lastname"
@@ -90,7 +93,9 @@ function Register() {
         <button
           type="submit"
           className="p-3 bg-[#F3F243] rounded-md text-black font-bold my-4"
-        >Rregister </button>
+        >
+          Rregister{" "}
+        </button>
         <a href="" className="text-center text-[#F3F243] underline">
           O inicia sesion
         </a>
