@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <HashRouter>
-        <NavBar/>
+        {/* <NavBar/> */}
         <Routes>
 
           <Route element={<Home/>} path="/"/>
