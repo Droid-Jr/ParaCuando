@@ -10,19 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "axios": "^1.6.2",
-    "cors": "^2.8.5",
-=======
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.2",
->>>>>>> 2d65d3802abab807c4501f254cf9ae9d746cae6e
+    "cors": "^2.8.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.48.2",
     "react-redux": "^8.1.3",
     "react-router-dom": "^6.19.0",
-    "sonner": "^1.2.0"
+    "sonner": "^1.2.0",
+    "swiper": "^11.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
