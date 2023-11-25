@@ -40,11 +40,11 @@ function Login() {
   return (
     <div className="h-full w-full px-4 flex flex-col items-center py-8 lg:flex-row gap-8 sm:gap-12 sm:px-12 lg:px-0 lg:gap-0">
       <Fields />
-      <div className="lg:flex-1 w-full">
+      <div className="lg:flex-1">
         <form
           onSubmit={handleSubmit(login)}
-          className="h-[35rem] relative px-[2.4rem]  lg:w-[34.8125rem] lg:h-[35rem] border w-full rounded-xl flex flex-col justify-center gap-7 bg-opacity-70 md:h-[37rem]
-        text-white bg-black lg:gap-4 md:gap-7 py-8 md:py-12 lg:pb-[30px] lg:pr-[68px] lg:[pt-42px]  lg:pl-[52px] "
+          className="h-[35rem] relative px-[2.4rem]  lg:w-[34.8125rem] lg:h-[35rem] border w-full rounded-xl flex flex-col justify-center gap-7 bg-opacity-70 md:h-[35rem] md:w-[32rem]
+        text-white bg-black lg:gap-4 md:gap-7 py-8 md:py-12 lg:pb-[30px] lg:pr-[68px] lg:[pt-42px] lg:pl-[52px] "
         >
           <img
             src="../../public/imgs/login/Group 296.svg"
