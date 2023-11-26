@@ -2,16 +2,21 @@
     {
         "title": "cuarto vip 14",
         "datos": "cuarto de 8x8, +sala, jacuzzi y cocina",
-        "img": "/public/img/cuarto14.webp"
+        "img": "/imgs/login/cuarto14.webp"
     },
     {
         "title": "cuarto vip 15",
         "datos": "cuarto de 10x10, +sala, jacuzzi y cocina",
-        "img": "/public/img/cuarto15.jpg"
+        "img": "/imgs/login/cuarto15.jpg"
     },
     {
         "title": "cuarto vip 16",
         "datos": "cuarto de 8x8, +sala, jacuzzi y cocina",
-        "img": "/public/img/cuarto16.jpg"
+        "img": "/imgs/login/cuarto16.jpg"
+    },
+    {
+        "title": "cuarto vip 16",
+        "datos": "cuarto de 8x8, +sala, jacuzzi y cocina",
+        "img": "/imgs/login/cuarto14.webp"
     }
 ]
