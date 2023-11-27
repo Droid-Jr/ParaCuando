@@ -1,60 +1,31 @@
-import json from '../json/homeCon.json';
-import React, { useRef } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import json from "../json/homeCon.json";
+
+import React, { useRef, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import { Navigation } from 'swiper/modules';
+
 
 export default function Contenido_Populares() {
-  const sliderRef = useRef(null);
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false,
-        },
-      },
-    ],
-  };
-
-  const handleNext = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
-    }
-  };
-
-  const handlePrev = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickPrev();
-    }
-  };
-
   return (
-    <div className="w-full relative">
-      <Slider ref={sliderRef} {...settings}>
-        {json.map((valor, index) => (
-          <div key={index} className="w-299 h-239">
-            <img src={valor.img} alt="" className="w-full h-full object-cover" />
-            <p>
-              {
-                valor.title
-              }
-            </p>
-          </div>
-        ))}
-      </Slider>
+    <div className=" w-full px-16 py-8 ">
+      <h1>Populares en Bolivia</h1>
+      <p>Los mejores Hoteles de Bolivia</p>
 
-      <button onClick={handleNext} className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-500 p-2 rounded-full text-white">
-        {'>'}
-      </button>
+      <Swiper navigation={true} modules={[Navigation]} className="grid gap-4 " slidesPerView={3} loop={true} spaceBetween={30}>
+        {json.map((valor, index) => (
+          <SwiperSlide>
+            <div key={index} className=" border-2 ">
+              <img src={valor.img} alt="" className="" />
+              <p>{valor.title}</p>
+            </div>{" "}
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
     </div>
   );
 }

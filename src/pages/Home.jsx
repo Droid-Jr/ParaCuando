@@ -1,14 +1,15 @@
 import React from 'react';
 import Contenido from '../components/Contenido';
-import homeCon from '../json/homeCon';
+import Carrusel from './Carrussel';
 
 function Home() {
   return (
     <div>
       <div>
         {/* Aquí se incluye el componente Contenido */}
+        <Carrusel/>
         <Contenido />
-        <homeCon/>
+        
       </div>
     </div>
   );
