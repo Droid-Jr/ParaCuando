@@ -6,7 +6,7 @@ import { Navigation } from 'swiper/modules';
 
 export default function Contenido_Populares() {
   return (
-    <div className="w-full px-4 sm:px-8 md:px-16 py-8">
+    <div className="w-full px-4 sm:px-8 md:px-16 py-8 ">
       <h1 className="text-BLACK-LIGHT font-roboto text-[24px] font-medium">Populares en Bolivia</h1>
       <p className="font-roboto font-normal text-[16px] leading-6 text-graydark w-[222px]">Los mejores Hoteles de Bolivia</p>
 
@@ -26,16 +26,26 @@ export default function Contenido_Populares() {
       }}>
         {json.map((valor, index) => (
           <SwiperSlide key={index}>
-            <div className="w-full sm:w-[299px] h-[454px] border-2 rounded-2xl mx-2">
+            <div className="w-full sm:w-[299px] h-[454px] border-2 rounded-2xl ">
               
               <img src={valor.img} alt="" className="h-[239px] sm:h-[299px] w-full object-cover rounded-tl-2xl rounded-tr-2xl overflow-hidden " />
 
               <div className="p-6">
-                <p className="font-roboto font-normal text-[20px] text-black text-left">{valor.title}</p>
-                <p>{valor.datos}</p>
-              </div>
+                  <div className="mt-[-18px]"><p className="font-roboto font-normal text-[20px] text-black text-left ">{valor.title}</p>
+
+                    <p className="mt-[-6px] text-[15px]">{valor.datos}</p>
+
+                    <p className="mt-[15px] text-blue-500"><a href="#">{valor.url}</a></p>
+
+                  </div>
+
+                  <div className="flex items-center mt-[8px]">
+                    <img src={valor.logo} alt="" className="w-[15.33px] h-[15.33px]  "/>
+                    <p className="px-1 text-black font-bold text-[14px]" >{valor.votos}</p>
+                  </div>
             </div>
-          </SwiperSlide>
+          </div>
+        </SwiperSlide>
         ))}
       </Swiper>
     </div>
