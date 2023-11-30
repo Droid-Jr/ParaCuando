@@ -5,6 +5,8 @@ import { Navigation } from 'swiper/modules';
 import { CiHeart } from "react-icons/ci";
 import json from "../json/homeCon.json";
 
+import { LuArrowRightCircle } from "react-icons/lu";
+
 export default function Contenido_Populares() {
   return (
     <div className="md:px-8 flex justify-center items-center">
@@ -12,8 +14,22 @@ export default function Contenido_Populares() {
         <h1 className="text-BLACK-LIGHT font-roboto text-[24px] font-medium mt-[10px]">Populares en Bolivia</h1>
         <p className="font-roboto font-normal text-[16px] leading-6 text-graydark w-[222px] mt-[-8px]">Los mejores Hoteles de Bolivia</p>
 
-        <div className="mb-[100px] mt-[50px] w-[964px] h-[464px] ">
-          <Swiper navigation={true} loop={true} modules={[Navigation]} className="grid gap-4 " slidesPerView={1} spaceBetween={10} breakpoints={{
+        <div className="mb-[100px] mt-[50px] w-[964px] h-[464px] relative">
+          {/* Agrega el icono de navegación */}
+          <LuArrowRightCircle
+            className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer mr-[-75px]"
+            color="color-deseado"
+            size={50}
+            onClick={() => {
+              const swiper = document.querySelector('.swiper-container').swiper;
+              swiper.slideNext(); // Esto avanza al siguiente slide
+            }}
+          />
+
+
+          <Swiper navigation={{
+              nextEl: '.custom-next',
+            }} loop={true} modules={[Navigation]} className="grid gap-4 swiper-container " slidesPerView={1.3} spaceBetween={10} breakpoints={{
             640: {
               slidesPerView: 1.3,
               spaceBetween: 10,
