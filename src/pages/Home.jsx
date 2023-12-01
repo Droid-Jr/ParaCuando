@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import Contenido from '../components/Contenido';
+import Carrusel from './Carrussel';
 
 function Home() {
   return (
-    <div>Home</div>
-  )
+    <div>
+      <div>
+        {/* Aquí se incluye el componente Contenido */}
+        <Carrusel/>
+        <Contenido />
+        
+      </div>
+    </div>
+  );
 }
 
-export default Home
+export default Home;

@@ -15,10 +15,11 @@ function App() {
   return (
     <>
       <HashRouter>
-        <NavBar/>
+        
+        <NavBar/> 
         <Routes>
 
-          {/* <Route element={<Home/>} path="/"/> */}
+          <Route element={<Home/>} path="/"/>
           <Route element={<Register setUser={setUser} />} path="/register"/>
           <Route element={<Login/>} path="/login"/>
           <Route element={<Carrussel/>} path="/carrussel"/>
