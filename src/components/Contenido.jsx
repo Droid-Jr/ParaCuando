@@ -78,8 +78,7 @@ export default function Contenido_Populares() {
             ))}
           </Swiper>
         </div>
-      </div> 
-      
+      </div>   
     </div>
   );
 }
